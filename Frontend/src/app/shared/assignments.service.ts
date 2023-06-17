@@ -17,7 +17,7 @@ export class AssignmentsService {
   ) {}
 
   //uri_api = 'http://localhost:8010/api/assignments';
-  uri_api = 'https://assignement-management-api.onrender.com';
+  uri_api = 'https://assignement-management-api.onrender.com/api/assignments';
   // uri_api = 'http://localhost:8010/api/assignments';
 
   getAssignments(page: number, limit: number): Observable<any> {
