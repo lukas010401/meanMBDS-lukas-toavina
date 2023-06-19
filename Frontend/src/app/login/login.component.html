@@ -1,1 +1,14 @@
-<p>ICI FORMULAIRE DE CONNEXION</p>
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-title>Connectez-vous</mat-card-title>
+    <form (ngSubmit)="login()">
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Se connecter</button>
+    </form>
+  </mat-card>
+</div>

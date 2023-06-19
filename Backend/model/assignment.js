@@ -14,7 +14,8 @@ let AssignmentSchema = Schema({
     },
     note: Number,
     dateDeRendu: Date,
-    rendu: Boolean
+    rendu: Boolean,
+    remarque: String
 });
 
 AssignmentSchema.plugin(aggregatePaginate);

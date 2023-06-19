@@ -3,6 +3,10 @@ import { Assignment } from '../assignment.model';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { Student } from 'src/app/student/student.model';
+import { Subject } from 'src/app/subjects/subject.model';
+import { StudentsService } from 'src/app/shared/students.service';
+import { SubjectsService } from 'src/app/shared/subjects.service';
 
 @Component({
   selector: 'app-assignment-detail',
@@ -11,25 +15,53 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class AssignmentDetailComponent implements OnInit {
   assignmentTransmis?: Assignment;
+  subjects!: Subject[];
+  students!: Student[];
 
   constructor(
     private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private studentsService: StudentsService,
+    private subjectsService: SubjectsService
   ) {}
 
   ngOnInit(): void {
     // appelée avant le rendu du composant
     // on va chercher l'id dans l'url active
     // en mettant + on force la conversion en number
+    this.getStudents();
+    this.getSubjects();
+
     const id = +this.route.snapshot.params['id'];
     console.log('Dans le ngOnInit de detail, id = ' + id);
 
     // on va chercher l'assignment à afficher
     this.assignmentsService.getAssignment(id).subscribe((assignment) => {
       this.assignmentTransmis = assignment;
+      // this.assignmentTransmis.auteurInfo = this.students.find(assignment.auteur_id)
       console.log(assignment);
+    });
+  }
+
+  getSubjects() {
+    this.subjectsService.getSubjects().subscribe((data) => {
+      this.subjects = data;
+      // this.assignments = data.docs;
+
+      console.log('Données reçues subjects');
+      console.log(data);
+    });
+  }
+
+  getStudents() {
+    this.studentsService.getStudents().subscribe((data) => {
+      this.students = data;
+      // this.assignments = data.docs;
+
+      console.log('Données reçues students');
+      console.log(data);
     });
   }
 

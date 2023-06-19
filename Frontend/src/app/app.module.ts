@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { RenduDirective } from './shared/rendu.directive';
@@ -32,35 +34,36 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { authGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';  
+import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app.routing.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: AssignmentsComponent
+    component: AssignmentsComponent,
   },
   {
     path: 'home',
-    component: AssignmentsComponent
+    component: AssignmentsComponent,
   },
   {
     path: 'add',
-    component: AddAssignmentComponent
+    component: AddAssignmentComponent,
   },
   {
     path: 'assignments/:id',
-    component: AssignmentDetailComponent
+    component: AssignmentDetailComponent,
   },
   {
     path: 'assignments/:id/edit',
     component: EditAssignmentComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'login',
-    component: LoginComponent
-  }
-]
+    component: LoginComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,22 +73,35 @@ const routes: Routes = [
     AddAssignmentComponent,
     EditAssignmentComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule, RouterModule.forRoot(routes),
+    FormsModule,
+    RouterModule.forRoot(routes),
     HttpClientModule,
-    MatNativeDateModule, ScrollingModule,
-    MatButtonModule, MatIconModule, MatDividerModule,
-    MatInputModule, MatFormFieldModule, MatDatepickerModule,
-    MatListModule, MatCardModule, MatCheckboxModule, MatSlideToggleModule,
-    MatTableModule, MatPaginatorModule,
+    MatNativeDateModule,
+    ScrollingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatListModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

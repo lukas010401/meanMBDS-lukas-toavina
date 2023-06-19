@@ -24,12 +24,12 @@
 
   <span class="spacer"></span>
   <mat-icon class="icon" *ngIf="isLogged()">account_circle</mat-icon>
-    <span class="username" *ngIf="isLogged()">{{nom}}</span>
+  <span class="username" *ngIf="isLogged()">{{nom}}</span>
   <a mat-raised-button (click)="creerDonneesDeTest()" style="margin-right:25px">Peupler BD avec données de test</a>
   <div *ngIf="currentRoute !== '/login'">
     <nav>
       <a routerLink="/login">
-        <button mat-raised-button (click)="login()">{{labelConnexion}}</button>
+        <button mat-raised-button (click)="logout()">Se déconnecter</button>
       </a>
     </nav>
 
@@ -39,13 +39,13 @@
 <!-- Indique que le composant affiché sera celui
      correspondant à l'URL courant
 -->
-<mat-sidenav-container>
+<mat-sidenav-container *ngIf="isLogged()">
   <mat-sidenav #sidenav mode="side" opened>
     <mat-nav-list>
-      <a mat-list-item routerLink="/">Accueil</a>
-      <a mat-list-item routerLink="/about">À propos</a>
+      <a mat-button routerLink="/home">Liste des devoirs</a>
+      <!-- <a mat-list-item routerLink="/about">À propos</a>
       <a mat-list-item routerLink="/services">Services</a>
-      <a mat-list-item routerLink="/contact">Contact</a>
+      <a mat-list-item routerLink="/contact">Contact</a> -->
     </mat-nav-list>
   </mat-sidenav>
 
@@ -53,3 +53,7 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<div *ngIf="!isLogged()">
+  <router-outlet></router-outlet>
+</div>

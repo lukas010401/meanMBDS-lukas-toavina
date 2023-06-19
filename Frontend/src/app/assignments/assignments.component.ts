@@ -16,7 +16,7 @@ export class AssignmentsComponent implements OnInit {
   assignments: Assignment[] = [];
   // Pour la data table
   displayedColumns: string[] = [
-    'id',
+    // 'id',
     'nomEleve',
     'matiere',
     'prof',
