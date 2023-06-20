@@ -39,7 +39,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 const routes: Routes = [
   {
     path: '',
-    component: AssignmentsComponent,
+    component: LoginComponent,
   },
   {
     path: 'home',
@@ -57,10 +57,6 @@ const routes: Routes = [
     path: 'assignments/:id/edit',
     component: EditAssignmentComponent,
     canActivate: [authGuard],
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
   },
 ];
 @NgModule({
