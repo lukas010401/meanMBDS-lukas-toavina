@@ -35,7 +35,6 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { authGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AppRoutingModule } from './app.routing.module';
 
 const routes: Routes = [
   {
@@ -76,7 +75,7 @@ const routes: Routes = [
     NavbarComponent,
   ],
   imports: [
-    AppRoutingModule,
+    // AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
