@@ -41,7 +41,7 @@ export class AppComponent {
 
   isLogged() {
     if (this.authService.loggedIn) {
-      this.nom = 'Michel Buffa';
+      // this.nom = 'User';
     }
     return this.authService.loggedIn;
   }

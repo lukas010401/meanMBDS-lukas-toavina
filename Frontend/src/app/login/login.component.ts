@@ -10,14 +10,27 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  logged: boolean = false;
+
+  users = [
+    { email: 'user1@user1.com', password: 'root1' },
+    { email: 'user2@user2.com', password: 'root2' },
+    { email: 'user3@user3.com', password: 'root3' },
+  ];
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     // utilise l'authService pour se connecter
     if (!this.authService.loggedIn) {
-      this.authService.logIn();
-      this.router.navigate(['/home']);
+      let user = this.users.find(
+        (u) => u.email == this.email && u.password == this.password
+      );
+      if (user != null) {
+        this.authService.logIn();
+        this.router.navigate(['/home']);
+      }
+
       // on change le label du bouton
       // this.labelConnexion = "Se déconnecter";
     } else {

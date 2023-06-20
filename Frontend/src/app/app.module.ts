@@ -35,6 +35,8 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { authGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StudentComponent } from './student/student.component';
+import { SubjectComponent } from './subject/subject.component';
 
 const routes: Routes = [
   {
@@ -62,6 +64,18 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'students',
+    component: StudentComponent,
+  },
+  {
+    path: 'students',
+    component: StudentComponent,
+  },
+  {
+    path: 'subjects',
+    component: SubjectComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -73,6 +87,8 @@ const routes: Routes = [
     EditAssignmentComponent,
     LoginComponent,
     NavbarComponent,
+    StudentComponent,
+    SubjectComponent,
   ],
   imports: [
     // AppRoutingModule,
