@@ -58,6 +58,10 @@ const routes: Routes = [
     component: EditAssignmentComponent,
     canActivate: [authGuard],
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 @NgModule({
   declarations: [
