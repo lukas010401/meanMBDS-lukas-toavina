@@ -52,11 +52,14 @@ function getAssignments(req, res) {
       {
         page: parseInt(req.query.page) || 1,
         limit: parseInt(req.query.limit) || 10,
+        
       },
       (err, result) => {
         if (err) {
           res.send(err);
-        } else {
+        }
+        console.log('page' + req.query.page);
+        console.log('page' + req.query.page);
           // Récupérer les résultats de l'agrégation
           const assignments = result.docs;
           
@@ -98,8 +101,6 @@ function getAssignments(req, res) {
 
             // Envoyer les affectations avec les informations sur l'auteur et la matière
             res.send(assignmentsWithDetails);
-
-        }
       }
     );
   }
