@@ -29,6 +29,10 @@ export class AppComponent {
     });
   }
 
+  ngOnInit() {
+    this.router.navigate(['/login']);
+  }
+
   logout() {
     this.authService.logOut();
     // et on navigue vers la page d'accueil

@@ -25,7 +25,7 @@
   <span class="spacer"></span>
   <mat-icon class="icon" *ngIf="isLogged()">account_circle</mat-icon>
   <span class="username" *ngIf="isLogged()">{{nom}}</span>
-  <a mat-raised-button (click)="creerDonneesDeTest()" style="margin-right:25px">Peupler BD avec données de test</a>
+  <!-- <a mat-raised-button (click)="creerDonneesDeTest()" style="margin-right:25px">Peupler BD avec données de test</a> -->
   <div *ngIf="currentRoute !== '/login'">
     <nav>
       <a routerLink="/login">
